@@ -120,7 +120,7 @@ class _MyHomePageNewState extends State<MyHomePage_After> {
         appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
         //drawer: DrawerWidget(),
         body: IndexedStack(
-          index: currentIndex,
+         // index: currentIndex,
           children: viewContainer,
         ),
         bottomNavigationBar: BottomNavBarWidget(),

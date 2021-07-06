@@ -6,10 +6,10 @@ import 'package:flutter_relive_klearningpro/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 class LoggedInWidget extends StatelessWidget {
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    //final user = FirebaseAuth.instance.currentUser!;
+    final user = FirebaseAuth.instance.currentUser!;
 
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +35,7 @@ class LoggedInWidget extends StatelessWidget {
               'Profile',
               style: TextStyle(fontSize: 24),
             ),
-        /*
+
             SizedBox(height: 32),
             CircleAvatar(
               radius: 40,
@@ -52,7 +52,7 @@ class LoggedInWidget extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
 
-         */
+
           ],
         ),
       ),

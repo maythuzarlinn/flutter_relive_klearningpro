@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           primaryColorDark: Colors.white,
           backgroundColor: Colors.white),
       //ThemeData.dark().copyWith(accentColor: Colors.indigo),//primarySwatch: Colors.blue,
-      home: MyHomePage(),//HomePage()
+      home: ProfileOverview(),//HomePage()
     )
   //}
   );
@@ -50,8 +50,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageNewState extends State<MyHomePage> {
   final List<Widget> viewContainer = [
     //AppSingUp(),
-    SignUpWidget(),
-    //HomeScreen(),
+    //SignUpWidget(),
+    HomeScreen(),
     //MyHomePage_After(),
     //MusicPage(slug: 'brands/?limit=3&page=1'),
     //HomeScreen(),
@@ -72,12 +72,12 @@ class _MyHomePageNewState extends State<MyHomePage> {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-          //appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
+          appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
         //drawer: DrawerWidget(),
           body: Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,),
             child: IndexedStack(
-              index: currentIndex,
+              //index: currentIndex,
               children: viewContainer,
             ),
           ),
