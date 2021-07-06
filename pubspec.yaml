@@ -45,6 +45,8 @@ dependencies:
 
   #Google Fonts
   google_fonts: ^2.1.0
+  #curved_navigation_bar
+  curved_navigation_bar: ^1.0.1
 
 
 dev_dependencies:

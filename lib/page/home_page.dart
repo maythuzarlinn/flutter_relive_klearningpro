@@ -117,7 +117,7 @@ class _MyHomePageNewState extends State<MyHomePage_After> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        //appBar: appBarWidget(context),
+        appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
         //drawer: DrawerWidget(),
         body: IndexedStack(
           index: currentIndex,
