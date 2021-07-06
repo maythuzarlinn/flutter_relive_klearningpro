@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "642504168752",
+    "project_id": "youk-tat-yar-yar",
+    "storage_bucket": "youk-tat-yar-yar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642504168752:android:0ede09cca4883e947e64f5",
+        "android_client_info": {
+          "package_name": "com.mtzl.flutter_relive_klearningpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642504168752-e1gr15mhne1bf9mvj4p4m34489si6uv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtzl.flutter_relive_klearningpro",
+            "certificate_hash": "361335f714898f923c4848f0940fa31359fd56ac"
+          }
+        },
+        {
+          "client_id": "642504168752-na3n5jo45fiudhicosp266g1d5a8qusj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD__qofM95MxRi7t8x3vkbtqIcnRJlYh4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642504168752-na3n5jo45fiudhicosp266g1d5a8qusj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
