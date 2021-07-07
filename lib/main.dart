@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
   create: (context) => GoogleSignInProvider(),
   child: MaterialApp(
-  debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
+
       title: title,
       theme: ThemeData(
           fontFamily: 'Roboto',

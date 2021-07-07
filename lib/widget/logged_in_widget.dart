@@ -13,11 +13,17 @@ class LoggedInWidget extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Logged In'),
+        title: Text('Profile',
+        style: TextStyle(color: Colors.blueGrey),
+        ),
+        backgroundColor: Colors.white,
         centerTitle: true,
         actions: [
+
           TextButton(
-            child: Text('Sign Out'),
+              child: Text('Sign Out',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
             onPressed: (){
               final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.logout();
@@ -26,15 +32,15 @@ class LoggedInWidget extends StatelessWidget {
         ],
       ),
       body: Container(
-        alignment: Alignment.center,
-        color: Colors.blueGrey.shade900,
+        alignment: Alignment.topCenter,
+        color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Profile',
-              style: TextStyle(fontSize: 24),
-            ),
+            //Text(
+             // 'Profile',
+             // style: TextStyle(color: Colors.blueGrey,fontSize: 24),
+           // ),
 
             SizedBox(height: 32),
             CircleAvatar(
@@ -44,12 +50,12 @@ class LoggedInWidget extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               'Name: ' + user.displayName!,//displayName!
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(color: Colors.blueGrey, fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
               'Email: ' + user.email!,//email!
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(color: Colors.blueGrey, fontSize: 16),
             ),
 
 

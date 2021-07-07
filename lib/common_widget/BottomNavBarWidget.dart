@@ -123,28 +123,40 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
       //});
    // }
 
-    return SafeArea(
-        child: new Scaffold(
-          appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
+    return MaterialApp(
+        home: new Scaffold(
+          appBar: AppBar(
+            title: Text('Youk Tat Yar Yar'),
+            backgroundColor: Colors.blueGrey,
+          ),
           body: Padding(
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,),
           child: viewContainer[currentIndex],
-        ),
+          ),
           bottomNavigationBar: CurvedNavigationBar (
             key: _bottomNavigationKey,
             index: currentIndex,
             height: 45.0,
-          items: <Widget>[
-            Icon(
-              Icons.home,
-              size: 35,
-              color: Colors.blueGrey,
-            ),
-            Icon(Icons.movie),
-            Icon(Icons.notifications_active_rounded),
+            items: <Widget>[
+              Icon(
+                Icons.home,
+                size: 35,
+                color: Colors.blueGrey,
+              ),
+              Icon(
+                Icons.movie,
+                color: Colors.blueGrey,
+              ),
+              Icon(
+                Icons.notifications_active_rounded,
+                color: Colors.blueGrey,
+              ),
 
             //Icon(Icons.shopping_cart),
-            Icon(Icons.person),
+              Icon(
+                Icons.person,
+                color: Colors.blueGrey,
+              ),
           ],
           //color: Colors.grey[200],
           buttonBackgroundColor: Colors.grey[400],
