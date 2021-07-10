@@ -50,7 +50,7 @@ class _BeginnerScreenState extends State<BeginnerScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => VideoScreen(video: url,),
+                      builder: (_) => VideoScreen(video: document,),
                     ),
                  ),
                   child:Container(

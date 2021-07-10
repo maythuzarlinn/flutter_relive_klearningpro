@@ -10,10 +10,8 @@ class VideoScreen extends StatefulWidget {
   //VideoScreen({required this.video});
 
 //final QuerySnapshot snapshot;
- //nal int index;
- //onst VideoScreen({Key? key, required this.snapshot, required this.index}) : super(key: key);
-
-
+  //nal int index;
+  //onst VideoScreen({Key? key, required this.snapshot, required this.index}) : super(key: key);
 
   @override
   _VideoScreenState createState() => _VideoScreenState();
@@ -21,23 +19,30 @@ class VideoScreen extends StatefulWidget {
 
 class _VideoScreenState extends State<VideoScreen> {
   late YoutubePlayerController _controller;
+  var data;
+  late String videoId;
+
   //var firestoreDb = FirebaseFirestore.instance.collection('Beginner').snapshots();
   @override
   void initState() {
     super.initState();
-      //var url = FirebaseFirestore.instance.collection('Beginner').doc('url').toString();
-         _controller = YoutubePlayerController(
-          initialVideoId: widget.video.id,
-          flags: YoutubePlayerFlags(
-          autoPlay: false,
-          mute: false,
-          disableDragSeek: false,
-          loop: false,
-          isLive: false,
-          forceHD: false,
-        ),
-      );
+    //var url = FirebaseFirestore.instance.collection('Beginner').doc('url').toString();
+    data = widget.video.data();
+    videoId = YoutubePlayer.convertUrlToId(data["url"])!;
+    print("videoId: " + videoId);
+    _controller = YoutubePlayerController(
+      initialVideoId: videoId,
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+        disableDragSeek: false,
+        loop: false,
+        isLive: false,
+        forceHD: false,
+      ),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +73,7 @@ class _VideoScreenState extends State<VideoScreen> {
             SizedBox(width: 10.0),
             Expanded(
               child: Text(
-                widget.video.data().toString() ,
+                data["description"],
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
@@ -78,10 +83,6 @@ class _VideoScreenState extends State<VideoScreen> {
           ],
         ),
       ),
-
-      );
+    );
   }
 }
-
-
-
