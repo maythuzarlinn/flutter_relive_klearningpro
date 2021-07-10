@@ -47,6 +47,9 @@ dependencies:
   google_fonts: ^2.1.0
   #curved_navigation_bar
   curved_navigation_bar: ^1.0.1
+  #animated text
+  animated_text_kit: ^4.2.1
+  marquee: ^2.2.0
 
 
 dev_dependencies:

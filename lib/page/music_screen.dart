@@ -207,7 +207,7 @@ class CourseListViewDetails extends StatelessWidget {
       body: Container(
         child: RaisedButton(
           onPressed: () {  },
-          child: VideoScreen(),
+          child: BeginnerScreen(),
         ),
       ),
 

@@ -6,6 +6,7 @@ import 'package:flutter_relive_klearningpro/models/BrandModel.dart';
 import 'package:flutter_relive_klearningpro/page/beginner_screeen.dart';
 import 'package:flutter_relive_klearningpro/page/home_screen.dart';
 import 'package:flutter_relive_klearningpro/page/vocab_screen.dart';
+import 'package:flutter_relive_klearningpro/screens/detail_video_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -224,7 +225,7 @@ class BeginnerListViewDetails extends StatelessWidget {
       body: Container(
         child: RaisedButton(
           onPressed: () {  },
-          child: BeginnerScreen(),
+          child: DetailVideoScreen(),
         ),
       ),
 

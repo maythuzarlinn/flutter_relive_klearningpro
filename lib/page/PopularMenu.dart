@@ -3,6 +3,7 @@ import 'package:http/http.dart';
 import 'dart:convert';
 import 'dart:developer';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:marquee/marquee.dart';
 
 class PopularMenu extends StatelessWidget {
   late double width, height = 55.0;
@@ -138,10 +139,24 @@ class AboutUsDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("K Learning"),
+        backgroundColor: Colors.blueGrey,
       ),
       body: Container(
 
-          child: Text("Thi is about of k learning."),
+          child: Marquee(
+            text: 'This is k learning app.I hope you are happy to be with us.',
+            style: TextStyle(fontWeight: FontWeight.bold),
+            scrollAxis: Axis.horizontal,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            blankSpace: 20.0,
+            velocity: 100.0,
+            pauseAfterRound: Duration(seconds: 1),
+            startPadding: 10.0,
+            accelerationDuration: Duration(seconds: 1),
+            accelerationCurve: Curves.linear,
+            decelerationDuration: Duration(milliseconds: 500),
+            // decelerationCurve: Curves.easeOut,
+          ),
 
       ),
 

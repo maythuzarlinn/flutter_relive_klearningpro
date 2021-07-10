@@ -28,9 +28,14 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
           fontFamily: 'Roboto',
-          primaryColor: Colors.white,
-          primaryColorDark: Colors.white,
-          backgroundColor: Colors.white),
+          //primaryColor: Colors.white,
+          //primaryColorDark: Colors.blueGrey,
+          //backgroundColor: Colors.white
+          appBarTheme: AppBarTheme(
+            color: Colors.blueGrey,
+          )
+
+      ),
       //ThemeData.dark().copyWith(accentColor: Colors.indigo),//primarySwatch: Colors.blue,
       home: ProfileOverview(),//HomePage()
     )
@@ -70,10 +75,13 @@ class _MyHomePageNewState extends State<MyHomePage> {
       ),
     );
      */
-    return DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
+    //return DefaultTabController(
+        //length: 3,
+    return Scaffold(
+      //appBar: AppBar(
+        //title: Text('Youk Tat Yar Yar'),
+        //backgroundColor: Colors.blueGrey,
+      //),
         //drawer: DrawerWidget(),
           body: Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,),
@@ -83,8 +91,8 @@ class _MyHomePageNewState extends State<MyHomePage> {
             ),
           ),
           bottomNavigationBar: BottomNavBarWidget(),
-      ),
-    );
+      );
+    //);
 
   }
 }
