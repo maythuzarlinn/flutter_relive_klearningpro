@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_relive_klearningpro/widget/HeaderWidget.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -137,10 +138,7 @@ class AboutUsDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("K Learning"),
-        backgroundColor: Colors.blueGrey,
-      ),
+      appBar: header(context, strTitle: 'About us.',),
       body: Container(
 
           child: Marquee(

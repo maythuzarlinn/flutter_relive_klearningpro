@@ -1,74 +1,16 @@
-/*
-import 'package:flutter/material.dart';
-import 'package:flutter_relive_klearningpro/main.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-class BottomNavBarWidget extends StatefulWidget {
-  @override
-  _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
-}
-
-class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
-  @override
-  Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-        navigateToScreens(index);
-      });
-
-    }
-
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text(
-            'Home',
-            style: TextStyle(color: Color(0xFF545454)),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(FontAwesomeIcons.heart),
-          title: Text(
-            'Music',
-            style: TextStyle(color: Color(0xFF545454)),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(FontAwesomeIcons.shoppingBag),
-          title: Text(
-            'Discussion',
-            style: TextStyle(color: Color(0xFF545454)),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(FontAwesomeIcons.dashcube),
-          title: Text(
-            'Profile',
-            style: TextStyle(color: Color(0xFF545454)),
-          ),
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Color(0xFFAA292E),
-      onTap: _onItemTapped,
-    );
-  }
-}
-
- */
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_relive_klearningpro/main.dart';
+import 'package:flutter_relive_klearningpro/models/user.dart';
+import 'package:flutter_relive_klearningpro/page/MyHomePage.dart';
+import 'package:flutter_relive_klearningpro/page/UploadPage.dart';
 import 'package:flutter_relive_klearningpro/page/home_page.dart';
 import 'package:flutter_relive_klearningpro/page/music_screen.dart';
+import 'package:flutter_relive_klearningpro/widget/HeaderWidget.dart';
 import 'package:flutter_relive_klearningpro/widget/logged_in_widget.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
+
+User? currentUser;
 class BottomNavBarWidget extends StatefulWidget {
   @override
   _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
@@ -80,7 +22,8 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
   final List<Widget> viewContainer = [
     HomeScreen(),
     MusicPage(slug: 'brands/?limit=3&page=1'),
-    MusicPage(slug: 'brands/?limit=3&page=1'),
+    UploadPage(gCurrentUser: currentUser!),
+    //UploadPage(),
     LoggedInWidget(),
   ];
   @override
@@ -125,10 +68,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
     return MaterialApp(
         home: new Scaffold(
-          appBar: AppBar(
-            title: Text('Youk Tat Yar Yar'),
-            backgroundColor: Colors.blueGrey,
-          ),
+          appBar: header(context, strTitle: 'Youk Tat Yar Yar',),
           body: Padding(
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,),
           child: viewContainer[currentIndex],

@@ -29,6 +29,8 @@ class _BeginnerScreenState extends State<BeginnerScreen> {
               );
             }
             return ListView(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 1.0, vertical: 5.0),
               children: snapshot.data!.docs.map((document) {
                 var url = document['url'];
                 var des = document['description'];
@@ -55,8 +57,8 @@ class _BeginnerScreenState extends State<BeginnerScreen> {
                  ),
                   child:Container(
                     margin: EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 5.0),
-                    padding: EdgeInsets.all(10.0),
+                        horizontal: 1.0, vertical: 5.0),
+                    padding: EdgeInsets.all(1.0),
                     height: 80.0,
                     decoration: BoxDecoration(
                       color: Colors.white,

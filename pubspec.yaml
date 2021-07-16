@@ -50,6 +50,13 @@ dependencies:
   #animated text
   animated_text_kit: ^4.2.1
   marquee: ^2.2.0
+  #image_picker:
+  image_picker: ^0.8.1+4
+  cached_network_image: ^3.0.0
+  image: ^3.0.2
+  uuid: ^3.0.4
+  #geolocator:
+  geolocator: ^7.2.0+1
 
 
 dev_dependencies:
@@ -66,6 +73,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: Signatra
+      fonts:
+        - asset: assets/fonts/Signatra.ttf
+  assets:
+    - assets/images/google_signin_button.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

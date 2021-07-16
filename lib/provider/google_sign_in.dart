@@ -1,13 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleSignInProvider extends ChangeNotifier {
   final googleSignIn = GoogleSignIn();
+  final usersReference = FirebaseFirestore.instance.collection("users");
+  final DateTime timestamp = DateTime.now();
+  late User currentUser;
+
   GoogleSignInAccount? _user;
+
   GoogleSignInAccount get user => _user!;
 
-  Future googleLogin() async{
+  Future googleLogin() async {
     try {
       final googleUser = await googleSignIn.signIn();
       if (googleUser == null) return;
@@ -20,12 +26,12 @@ class GoogleSignInProvider extends ChangeNotifier {
         idToken: googleAuth.idToken,
       );
       await FirebaseAuth.instance.signInWithCredential(credential);
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
     notifyListeners();
   }
-  Future logout() async{
+  Future logout() async {
     await googleSignIn.disconnect();
     FirebaseAuth.instance.signOut();
   }

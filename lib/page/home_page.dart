@@ -96,37 +96,3 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     );
   }
 }
-// ignore: camel_case_types
-
-class MyHomePage_After extends StatefulWidget {
-  @override
-  _MyHomePageNewState createState() => _MyHomePageNewState();
-}
-
-class _MyHomePageNewState extends State<MyHomePage_After> {
-  final List<Widget> viewContainer = [
-
-    HomeScreen(),
-    //MusicPage(slug: 'brands/?limit=3&page=1'),
-    //HomeScreen(),
-    //ProfileOverview()
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(title: Text('Youk Tat Yar Yar'),),
-        //drawer: DrawerWidget(),
-        body: IndexedStack(
-         // index: currentIndex,
-          children: viewContainer,
-        ),
-        bottomNavigationBar: BottomNavBarWidget(),
-      ),
-    );
-  }
-}
-
-

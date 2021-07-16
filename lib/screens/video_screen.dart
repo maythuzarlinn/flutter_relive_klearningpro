@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -46,43 +48,152 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-        padding: EdgeInsets.all(10.0),
-        height: 140.0,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              offset: Offset(0, 1),
-              blurRadius: 6.0,
-            ),
-          ],
-        ),
-        child: Row(
-          children: <Widget>[
-            YoutubePlayer(
-              controller: _controller,
-              liveUIColor: Colors.amber,
-              showVideoProgressIndicator: true,
-              onReady: () {
-                print('Player is ready.');
-              },
-            ),
-            SizedBox(width: 10.0),
-            Expanded(
-              child: Text(
-                data["description"],
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18.0,
-                ),
+        body: Container(
+          margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 36.0),
+          padding: EdgeInsets.all(1.0),
+          width: MediaQuery
+              .of(context)
+              .size
+              .width / 0.1,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height / 2,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0, 1),
+                blurRadius: 6.0,
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+          child: Column(
+              children: <Widget>[
+                YoutubePlayer(
+                  controller: _controller,
+                  liveUIColor: Colors.amber,
+                  showVideoProgressIndicator: true,
+                  onReady: () {
+                    print('Player is ready.');
+                  },
+                ),
+                SizedBox(width: 10.0),
+                Expanded(
+                  child: Text(
+                    data["title"],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10.0),
+                Divider(
+                  thickness: 1,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 1.0, vertical: 1.0),
+                  padding: EdgeInsets.all(10.0),
+                  height: 40,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text('0'),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text('views'),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text('0 Comment'),
+                          SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+
+                      Row(
+                        children: [
+                          Text(
+                            '0',
+                            //style: TextStyle(
+                            // fontWeight: FontWeight.bold,
+                            //),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(FontAwesomeIcons.solidHeart, color: Colors.red,),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(padding: const EdgeInsets.all(10.0),
+
+                  ///////////
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+
+
+                      Row(children: [
+
+                        Icon(FontAwesomeIcons.heart, color: Colors.red,),
+                        SizedBox(width: 10,),
+
+                      ],
+                      ),
+
+                      Row(children: [
+
+                        Icon(FontAwesomeIcons.comment,color: Colors.blueGrey ),
+                        SizedBox(width: 10,),
+                        Text(
+                          'Comment',
+                          //style: TextStyle(
+                          //  fontWeight: FontWeight.bold,
+                          //),
+                        ),
+                      ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(FontAwesomeIcons.solidSave,color: Colors.blueGrey, ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(FontAwesomeIcons.cloudDownloadAlt, color: Colors.blueGrey),
+                          SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+
+                    ],
+
+                  ),
+                ),
+                Divider(
+                  thickness: 1,
+                ),
+
+              ]
+          ),
+        )
     );
   }
 }
