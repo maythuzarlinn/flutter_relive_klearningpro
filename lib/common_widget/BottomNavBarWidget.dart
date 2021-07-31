@@ -8,10 +8,12 @@ import 'package:flutter_relive_klearningpro/page/music_screen.dart';
 import 'package:flutter_relive_klearningpro/widget/HeaderWidget.dart';
 import 'package:flutter_relive_klearningpro/widget/logged_in_widget.dart';
 
-
-
-User? currentUser;
 class BottomNavBarWidget extends StatefulWidget {
+  final User currentUser;
+
+  const BottomNavBarWidget({Key? key, required this.currentUser})
+      : super(key: key);
+
   @override
   _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
 }
@@ -31,11 +33,10 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
     //final newTrip = new Chip(null, null, null, null, null, null);
     //int _selectedIndex = 0;
 
-
     //void _onItemTapped(int index) {
-     // setState(() {
-      //  currentIndex = index;
-        /*if(_selectedIndex == 0 ){
+    // setState(() {
+    //  currentIndex = index;
+    /*if(_selectedIndex == 0 ){
           navigateToScreens(0);
 
           Navigator.push(context, MaterialPageRoute(
@@ -63,40 +64,45 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
          */
 
-      //});
-   // }
+    //});
+    // }
 
     return MaterialApp(
-        home: new Scaffold(
-          appBar: header(context, strTitle: 'Youk Tat Yar Yar',),
-          body: Padding(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,),
-          child: viewContainer[currentIndex],
+      home: new Scaffold(
+        appBar: header(
+          context,
+          strTitle: 'Youk Tat Yar Yar',
+        ),
+        body: Padding(
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top,
           ),
-          bottomNavigationBar: CurvedNavigationBar (
-            key: _bottomNavigationKey,
-            index: currentIndex,
-            height: 45.0,
-            items: <Widget>[
-              Icon(
-                Icons.home,
-                size: 35,
-                color: Colors.blueGrey,
-              ),
-              Icon(
-                Icons.movie,
-                color: Colors.blueGrey,
-              ),
-              Icon(
-                Icons.notifications_active_rounded,
-                color: Colors.blueGrey,
-              ),
+          child: viewContainer[currentIndex],
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          key: _bottomNavigationKey,
+          index: currentIndex,
+          height: 45.0,
+          items: <Widget>[
+            Icon(
+              Icons.home,
+              size: 35,
+              color: Colors.blueGrey,
+            ),
+            Icon(
+              Icons.movie,
+              color: Colors.blueGrey,
+            ),
+            Icon(
+              Icons.notifications_active_rounded,
+              color: Colors.blueGrey,
+            ),
 
             //Icon(Icons.shopping_cart),
-              Icon(
-                Icons.person,
-                color: Colors.blueGrey,
-              ),
+            Icon(
+              Icons.person,
+              color: Colors.blueGrey,
+            ),
           ],
           //color: Colors.grey[200],
           buttonBackgroundColor: Colors.grey[400],
@@ -107,15 +113,13 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             setState(() {
               currentIndex = index;
               print(currentIndex);
-
-      });
-    },
-     // currentIndex: _selectedIndex,
-     // selectedItemColor: Color(0xFFAA292E),
-     // onTap: _onItemTapped,
-    ),
-    ),
+            });
+          },
+          // currentIndex: _selectedIndex,
+          // selectedItemColor: Color(0xFFAA292E),
+          // onTap: _onItemTapped,
+        ),
+      ),
     );
   }
 }
-

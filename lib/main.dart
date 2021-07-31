@@ -33,7 +33,7 @@ void main()
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  static final String title = 'MainPage';
+  static final String title = 'Youk Tat Yar Yar';
 
   @override
   /*Widget build(BuildContext context) => ChangeNotifierProvider(

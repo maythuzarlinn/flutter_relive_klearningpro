@@ -17,7 +17,7 @@ class UploadPage extends StatefulWidget {
 
 class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMixin<UploadPage>
 {
-  late File? file;
+  File? file;
   bool uploading = false;
   String postId = Uuid().v4();
   TextEditingController descriptionTextEditingController = TextEditingController();

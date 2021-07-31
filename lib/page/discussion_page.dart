@@ -67,9 +67,13 @@ class _UploadPageState extends State<UploadPage> {
             SimpleDialogOption(
               child: Text("Cancel", style: TextStyle(color: Colors.blueGrey,),),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => BottomNavBarWidget()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottomNavBarWidget(
+                            currentUser: widget.gCurrentUser)));
               },
+
             ),
           ],
         );

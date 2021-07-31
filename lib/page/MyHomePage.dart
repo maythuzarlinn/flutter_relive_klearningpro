@@ -25,38 +25,33 @@ class _MyHomePageNewState extends State<MyHomePage> {
   late PageController pageController;
   int getPageIndex = 0;
 
-  void initState(){
+  void initState() {
     super.initState();
 
     pageController = PageController();
 
-    gSignIn.onCurrentUserChanged.listen((gSigninAccount){
+    gSignIn.onCurrentUserChanged.listen((gSigninAccount) {
       controlSignIn(gSigninAccount!);
-    }, onError: (gError){
+    }, onError: (gError) {
       print("Error Message: " + gError);
     });
 
-    gSignIn.signInSilently(suppressErrors: false).then((gSignInAccount){
+    gSignIn.signInSilently(suppressErrors: false).then((gSignInAccount) {
       controlSignIn(gSignInAccount!);
-    }).catchError((gError){
+    }).catchError((gError) {
       print("Error Message: " + gError);
     });
 
     setState(() {});
   }
 
-
-  controlSignIn(GoogleSignInAccount signInAccount) async
-  {
-    if(signInAccount != null)
-    {
+  controlSignIn(GoogleSignInAccount signInAccount) async {
+    if (signInAccount != null) {
       await saveUserInfoToFireStore();
       setState(() {
         isSignedIn = true;
       });
-    }
-    else
-    {
+    } else {
       setState(() {
         isSignedIn = false;
       });
@@ -65,10 +60,12 @@ class _MyHomePageNewState extends State<MyHomePage> {
 
   saveUserInfoToFireStore() async {
     final GoogleSignInAccount? gCurrentUser = gSignIn.currentUser;
-    DocumentSnapshot documentSnapshot = await usersReference.doc(gCurrentUser!.id).get();
+    DocumentSnapshot documentSnapshot =
+        await usersReference.doc(gCurrentUser!.id).get();
 
-    if(!documentSnapshot.exists){
-      final username = await Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccountPage()));
+    if (!documentSnapshot.exists) {
+      final username = await Navigator.push(context,
+          MaterialPageRoute(builder: (context) => CreateAccountPage()));
 
       usersReference.doc(gCurrentUser.id).set({
         "id": gCurrentUser.id,
@@ -83,40 +80,44 @@ class _MyHomePageNewState extends State<MyHomePage> {
     }
 
     currentUser = User.fromDocument(documentSnapshot);
-
   }
 
-  void dispose(){
+  void dispose() {
     pageController.dispose();
     super.dispose();
   }
 
-  loginUser(){
+  loginUser() {
     gSignIn.signIn();
   }
-  logoutUser(){
+
+  logoutUser() {
     gSignIn.signOut();
   }
-  whenPageChanges(int pageIndex){
+
+  whenPageChanges(int pageIndex) {
     setState(() {
       this.getPageIndex = pageIndex;
     });
   }
 
-  Scaffold buildHomeScreen(){
+  Scaffold buildHomeScreen() {
     return Scaffold(
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavBarWidget(currentUser: currentUser!),
     );
   }
 
-  Scaffold buildSignInScreen(){
+  Scaffold buildSignInScreen() {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [Theme.of(context).accentColor, Theme.of(context).primaryColor],
+            colors: [
+              Theme.of(context).accentColor,
+              Theme.of(context).primaryColor
+            ],
           ),
         ),
         alignment: Alignment.center,
@@ -126,7 +127,8 @@ class _MyHomePageNewState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               "Youk Tat Yar Yar",
-              style: TextStyle(fontSize: 92.0, color: Colors.white,fontFamily: "Signatra"),
+              style: TextStyle(
+                  fontSize: 92.0, color: Colors.white, fontFamily: "Signatra"),
             ),
             GestureDetector(
               onTap: loginUser,
@@ -147,17 +149,12 @@ class _MyHomePageNewState extends State<MyHomePage> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    if(isSignedIn)
-    {
+    if (isSignedIn) {
       return buildHomeScreen();
-    }
-    else
-    {
+    } else {
       return buildSignInScreen();
     }
   }
-
 }
